@@ -7,7 +7,7 @@ let db = new sqlite3.Database('./Database.db', (err) => {
     if (err) {
       console.error(err.message);
     }
-    console.log('Connected to the local database.');
+    console.log('Local Database is up.');
     return Promise.all([
         db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname VARCHAR(50), lastname VARCHAR(50), username VARCHAR(50), password VARCHAR(50), email VARCHAR(50), createdAt VARCHAR(50), updatedAt VARCHAR(50))")
         ]).then(() => {
