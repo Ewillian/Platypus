@@ -1,29 +1,20 @@
 {
-  "name": "platypus",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "service d'entraide",
+  "description": "tp todo list",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ewillian/Platypus.git"
-  },
-  "author": "groupe 10",
+  "author": "Verner",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ewillian/Platypus/issues"
-  },
-  "homepage": "https://github.com/Ewillian/Platypus#readme",
   "dependencies": {
-    "bulma": "^0.8.2",
-    "express": "^4.17.1",
-    "mongodb": "^3.5.6",
-    "mongoose": "^5.9.9",
-    "pug": "^2.0.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.3"
+    "bcrypt": "^3.0.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "pug": "^2.0.3",
+    "sql-template-strings": "^2.2.2",
+    "sqlite": "^3.0.0"
   }
 }
