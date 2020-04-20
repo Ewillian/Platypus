@@ -1,19 +1,22 @@
 doctype html
 html
   include ../structure/head.pug
-  body
-    .columns.is-mobile
-      .column
-      .column
-        if error
-          p.has-text-danger #{error}
-        form(action='', method='post')
-            label.label Username
-              .control
-                input(name="username", cols="30", rows="10", type="text").input
-            label.label Mot de passe
-              .control
-                input(name="password", cols="30", rows="10", type="password").input
-            input(type='submit', value='Connexion').button.is-success
-        a(href='signup').button.is-info Inscription
-      .column
+body
+    .column
+    section.section
+        .container.has-text-centered
+            .columns.is-centered
+                .column.is-5.is-4-desktop
+                    if error
+                        p.has-text-danger #{error}
+                    form(action='', method='post')
+                        .field
+                            .control
+                                input.input(name="username" type="text" placeholder="Pseudonyme")
+                        .field
+                            .control
+                                input.input(name="password" type="password" placeholder="Mot de passe")
+                        .field.is-grouped
+                            input(type='submit', value='Connexion').button.is-success
+                            a(href='signup').button.is-info Inscription
+                    .column

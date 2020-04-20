@@ -1,27 +1,40 @@
 doctype html
 html
   include structure/head.pug
-  body
-    .columns.is-mobile
-        .column
-        .column
-            if error
-                p.has-text-danger #{error}
-            form(action='signup', method='post')
-                label.label Username
-                .control
-                    input(name="username", cols="30", rows="10", type="text").input
-                label.label Mot de passe
-                .control
-                    input(name="password", cols="30", rows="10", type="password").input
-                label.label Prénom
-                .control
-                    input(name="firstname", cols="30", rows="10", type="text").input
-                label.label Nom
-                .control
-                    input(name="lastname", cols="30", rows="10", type="text").input
-                label.label E-mail
-                .control
-                    input(name="email", cols="30", rows="10", type="email").input
-                input(type='submit', value='Valider').button.is-success
-        .column
+body
+    .column
+    section.section
+        .container.has-text-centered
+            .columns.is-centered
+                .column.is-5.is-4-desktop
+                    if error
+                        p.has-text-danger #{error}
+                    form(action='signup', method='post')
+                        .field
+                            .control
+                                input.input(name="lastname" type="text" placeholder="Nom")
+                        .field
+                            .control
+                                input.input(name="firstname" type="text" placeholder="Prénom")
+                        .field
+                            .control
+                                input.input(name="mail" type="email" placeholder="Adresse mail")                
+                        .field
+                            .control
+                                input.input(name="age" type="number" max="99" min="10" placeholder="Âge")
+                        .field
+                            .control
+                                input.input(name="username" type="text" placeholder="Pseudonyme")
+                        .field
+                            .control
+                                input.input(name="town" type="text" placeholder="Ville")        
+                        .field
+                            .control                        
+                                input.input(name="password" type="password" placeholder="Mot de passe")
+                        .field.is-grouped
+                            .control.is-expanded
+                                a.button.is-primary.is-outlined.is-fullwidth(href="sessions") Déjà inscrit
+                            .control.is-expanded
+                                input(type='submit', value='Valider').button.is-success
+
+                        p J'accepte les conditions d'utilisations
