@@ -17,6 +17,8 @@ body
                             .control
                                 input.input(name="password" type="password" placeholder="Mot de passe")
                         .field.is-grouped
-                            input(type='submit', value='Connexion').button.is-success
-                            a(href='signup').button.is-info Inscription
+                            .control.is-expanded
+                                input.is-fullwidth(type='submit', value='Connexion').button.is-success
+                            .control            
+                                a(href='signup').button.is-info Inscription
                     .column
