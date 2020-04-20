@@ -16,7 +16,7 @@ let db = new sqlite3.Database('./Database.db', (err) => {
             console.log("Une erreur s'est produite :", err)
     })
 })
-
+db.close();
 
 //Test Connection à la base de données
 app.use(router)
@@ -35,7 +35,6 @@ app.all('*', (req, res) => {
         'text/html': function(){
             res.render('404', {        
             })
-        
         }
     })
 })
