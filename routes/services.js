@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const utils = require('./../functions/utils')
-const todos = require('./../functions/todos')
-const sessions = require('./../functions/sessions')
+const utils = require('../functions/utils')
+const services = require('./../functions/services')
+const sessions = require('../functions/sessions')
 
 
 router.get('/', (request, response, next) => {
@@ -12,13 +12,13 @@ router.get('/', (request, response, next) => {
         if(request.query.order && request.query.asc == "ASC"){
             order = request.query.order
             asc = "DESC"
-            return todos.getAllByUserWithOrder(values.userID, request.query.order, request.query.asc)
+            return services.getAllByUserWithOrder(values.userID, request.query.order, request.query.asc)
         }else if(request.query.order && request.query.asc == "DESC"){
             order = request.query.order
             asc = "ASC"
-            return todos.getAllByUserWithOrder(values.userID, request.query.order, request.query.asc)
+            return services.getAllByUserWithOrder(values.userID, request.query.order, request.query.asc)
         }else{
-            return  todos.getAllByUser(values.userID)
+            return  services.getAllByUser(values.userID)
         }
     }).then((values)=>{
         response.format({
@@ -28,9 +28,9 @@ router.get('/', (request, response, next) => {
           
             html: function(){
                 response.render('index',{
-                    todos: values,
+                    services: values,
                     order: order,
-                    url: "/todos",
+                    url: "/services",
                     asc: asc
                 })
             },
@@ -47,18 +47,18 @@ router.get('/', (request, response, next) => {
 
 
 router.get('/add', (request, response, next)=>{
-    response.render('todos/edit',{ 
+    response.render('services/edit',{ 
         methode : 'POST'
     })
 })
 
 
-router.get('/:todoID/edit', (request, response, next)=>{
-    return todos.getTodo(request.params.todoID)
+router.get('/:serviceID/edit', (request, response, next)=>{
+    return todos.getTodo(request.params.serviceID)
     .then((values)=>{
-        response.render('todos/edit',{
+        response.render('services/edit',{
             method : 'PATCH',
-            todo: values
+            service: values
         })
     }).catch((error)=>{
         response.status(500).send(error)
@@ -66,8 +66,8 @@ router.get('/:todoID/edit', (request, response, next)=>{
 })
 
 
-router.get('/:todoID', (request, response, next) => {
-    return todos.getTodo(request.params.todoID)
+router.get('/:serviceID', (request, response, next) => {
+    return services.getService(request.params.serviceID)
     .then((values)=>{
         response.format({
             text: function(){
@@ -75,8 +75,8 @@ router.get('/:todoID', (request, response, next) => {
             },
           
             html: function(){
-                response.render('todos/show',{
-                    todo: values
+                response.render('services/show',{
+                    service: values
                 })
             },
           
@@ -94,7 +94,7 @@ router.post('/', (request, response, next) => {
     let date = utils.getDate()
     return sessions.getSessionByToken(request.cookies.AccessToken)
     .then((values)=>{
-    return todos.postTodo(request.body.message, Boolean(request.body.completion), date, values.userID)
+    return services.postService(request.body.message, Boolean(request.body.completion), date, values.userID)
     }).then((values)=>{
         response.format({
             text: function(){
@@ -115,9 +115,9 @@ router.post('/', (request, response, next) => {
 })
 
 
-router.patch('/:todoID', (request, response, next)=>{
+router.patch('/:serviceID', (request, response, next)=>{
     let date = utils.getDate()
-    return todos.patchTodo(request.params.todoID, request.body.message, request.body.completion, date)
+    return services.patchService(request.params.serviceID, request.body.message, request.body.completion, date)
     .then((values)=>{
         response.format({
             text: function(){
@@ -138,8 +138,8 @@ router.patch('/:todoID', (request, response, next)=>{
 })
 
 
-router.delete('/:todoID', (request, response, next) => {
-    return todos.deleteTodo(request.params.todoID)
+router.delete('/:serviceID', (request, response, next) => {
+    return services.deleteService(request.params.serviceID)
     .then((values)=>{
         response.format({
             text: function(){

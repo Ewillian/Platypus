@@ -39,21 +39,21 @@ html
                             i(style='margin-left:4px;').fas.fa-arrow-down
                     th(colspan="3")
                 tbody                    
-                each todo in todos
+                each service in services
                     tr
-                        td= todo.id
-                        td= todo.message
-                        if todo.completion
+                        td= service.id
+                        td= service.message
+                        if service.completion
                             td Fait
                         else
                             td En cours
-                        td= todo.update_at
-                        td= todo.created_at
+                        td= service.update_at
+                        td= service.created_at
                         td
-                            a(href='/todos/'+todo.id).button.is-info Afficher
+                            a(href='/services/'+service.id).button.is-info Afficher
                         td
-                            a(href='/todos/'+todo.id+'/edit').button.is-primary Editer
+                            a(href='/services/'+service.id+'/edit').button.is-primary Editer
                         td
-                            form(action='/todos/'+todo.id+'?_method=DELETE', method='post')
+                            form(action='/services/'+service.id+'?_method=DELETE', method='post')
                                 input(type='submit', value='Supprimer').button.is-danger
 

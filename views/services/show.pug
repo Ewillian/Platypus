@@ -7,14 +7,14 @@ html
       .column
       .column
         .label Message :
-        p.is-size-4 #{todo.message}
+        p.is-size-4 #{service.message}
         .label Completion :
-        if todo.completion
+        if service.completion
           p.is-size-4 Fait
         else
           p.is-size-4 En cours
         .label Crée le :
-        p.is-size-4 #{todo.created_at}
+        p.is-size-4 #{service.created_at}
         .label Mis à jour le :
-        p.is-size-4 #{todo.update_at}
+        p.is-size-4 #{service.update_at}
       .column

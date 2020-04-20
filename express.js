@@ -37,10 +37,10 @@ app.use((request, response, next) => {
 
 app.use('/users', require('./routes/users'))
 
-app.use('/todos', require('./routes/todos'))
+app.use('/services', require('./routes/services'))
 
 app.all('/', (request, response, next) => {
-    response.redirect('/todos')
+    response.redirect('/services')
 })
 
 

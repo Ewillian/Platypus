@@ -11,10 +11,10 @@ module.exports = {
     getUserbyUsername(username){
         return database.get('SELECT * FROM users WHERE username = ?;', username)
     },
-    getUserTodos(id, order, asc){
-        let query = sql`SELECT * FROM users LEFT OUTER JOIN todos ON todos.user_id=users.id WHERE users.id = ${id}`
+    getUserServices(id, order, asc){
+        let query = sql`SELECT * FROM users LEFT OUTER JOIN services ON services.user_id=users.id WHERE users.id = ${id}`
         if(order && asc){
-            order = "todos."+order
+            order = "services."+order
             query.append(sql` ORDER BY `).append(order).append(" ").append(asc)
             console.log(query)
         }

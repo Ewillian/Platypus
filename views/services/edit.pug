@@ -7,22 +7,22 @@ html
       .column
       .column
         if method == 'PATCH'
-          form(action='/todos/'+todo.id+'?_method=PATCH', method='post')
+          form(action='/services/'+service.id+'?_method=PATCH', method='post')
             label.label Message
               .control
-                textarea(class="todo" name="message", cols="30", rows="10").textarea.has-fixed-size #{todo.message}
+                textarea(class="service" name="message", cols="30", rows="10").textarea.has-fixed-size #{service.message}
             label.label Terminer  
               .checkbox
-                if todo.completion 
+                if service.completion 
                   input(type='checkbox', name='completion', checked)
                 else
                   input(type='checkbox', name='completion')
             input(type='submit', value='Valider').button.is-success
         else
-          form(action='/todos', method='post')
+          form(action='/services', method='post')
             label.label Message
               .control
-                textarea(class="todo" name="message", cols="30", rows="10").textarea.has-fixed-size
+                textarea(class="service" name="message", cols="30", rows="10").textarea.has-fixed-size
             label.label Terminer  
               .checkbox
                 input(type='checkbox', name='completion')
