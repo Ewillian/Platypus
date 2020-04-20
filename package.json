@@ -4,7 +4,8 @@
   "description": "tp todo list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node express.js"
   },
   "author": "Verner",
   "license": "ISC",
