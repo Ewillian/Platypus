@@ -1,38 +1,31 @@
-# Platypus
-![](https://i.imgur.com/SbFfrsf.png)
+# TodoList
 
-## Sommaire
 
-## Description et Objectif
+## Getting Started
 
-## Structure du projet
+### Installation
 
-## Technologies 
 
-### Démo
+```
+npm install
+```
 
-- Pug
-- Node js
-- Sqlite
 
-### Prod
 
-- React
-- node
-- mysql
-- kubernetes
-- google cloud --> crédit start up 2700€ de crédits pour un an de GCP donc ça fait 225€ / mois.
+## Démarrage
+Dans un terminal, à la racine du projet.
 
-## Fonctionnalités principale
+``` 
+node express.js
+```
+Lancer le serveur
 
-- Inscription / Connexion
-- Home --> affiche les services et besoins
-- Proposer / Chercher services
-    - catégoriser
-- expliquer remboursement
-- profil --> commentaires des "client"
+``` 
+localhost:8080
+```
 
-## Financement
 
-Dons + pubs
+## Auteur
+
+**Galmot Benoît** - [GalmotBenoit](https://github.com/BenoitYnov)	
 
