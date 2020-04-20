@@ -1,0 +1,24 @@
+doctype html
+html
+  include ../structure/head.pug
+  body
+    include ../structure/header.pug
+    .columns.is-mobile
+      .column
+      .column
+        .label Titre :
+        p.is-size-4 #{demand.title}
+        .label Ville :
+        p.is-size-4 #{demand.city}
+        .label Message :
+        p.is-size-4 #{demand.message}
+        .label Completion :
+        if demand.completion
+          p.is-size-4 Fait
+        else
+          p.is-size-4 En cours
+        .label Crée le :
+        p.is-size-4 #{demand.created_at}
+        .label Mis à jour le :
+        p.is-size-4 #{demand.update_at}
+      .column

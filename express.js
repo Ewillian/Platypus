@@ -38,6 +38,7 @@ app.use((request, response, next) => {
 app.use('/users', require('./routes/users'))
 
 app.use('/services', require('./routes/services'))
+app.use('/demands', require('./routes/demands'))
 
 app.all('/', (request, response, next) => {
     response.redirect('/services')

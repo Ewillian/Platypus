@@ -1,0 +1,42 @@
+doctype html
+html
+  include ../structure/head.pug
+  body
+    include ../structure/header.pug
+    .columns.is-mobile
+      .column
+      .column
+        if method == 'PATCH'
+          form(action='/demands/'+demand.id+'?_method=PATCH', method='post')
+            label.label Titre
+              .control
+                input(name="title", cols="30", rows="10", type="text", value=demand.title).input
+            label.label Ville
+              .control
+                input(name="city", cols="30", rows="10", type="text", value=demand.city).input
+            label.label Message
+              .control
+                textarea(class="demand" name="message", cols="30", rows="10").textarea.has-fixed-size #{demand.message}
+            label.label Terminer  
+              .checkbox
+                if demand.completion 
+                  input(type='checkbox', name='completion', checked)
+                else
+                  input(type='checkbox', name='completion')
+            input(type='submit', value='Valider').button.is-success
+        else
+          form(action='/demands', method='post')
+            label.label Titre
+              .control
+                input(name="title", cols="30", rows="10", type="text").input
+            label.label Ville
+              .control
+                input(name="city", cols="30", rows="10", type="text").input
+            label.label Message
+              .control
+                textarea(class="demands" name="message", cols="30", rows="10").textarea.has-fixed-size
+            label.label Terminer  
+              .checkbox
+                input(type='checkbox', name='completion')
+            input(type='submit', value='Valider').button.is-success
+      .column

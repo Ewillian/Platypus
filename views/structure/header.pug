@@ -1,12 +1,15 @@
 header
   .container
     .jumbotron
-      h1.title.has-text-centered Todolist
+      h1.title.has-text-centered Platypus
       nav
         a(href='/services/add').button Proposer un service
           i(style='margin-left:4px;').fas.fa-plus-square
-        a(href='/').button Afficher toutes les propositions
-        a(href='/users/add').button Demander un service
+        a(href='/services').button Afficher toutes les propositions
+        a(href='/demands/add').button Demander un service
+          i(style='margin-left:4px;').fas.fa-plus-square
+        a(href='/demands/list').button Afficher toutes les demandes
+        //a(href='/users/add').button Ajouter un user
           i(style='margin-left:4px;').fas.fa-plus-square
         a(href='/users').button Afficher tous les Utilisateurs
         form-group(action='/sessions?_method=DELETE', method='post')
