@@ -50,39 +50,52 @@ router.get('/login', function(req, res, next) {
 
     //req.body pseudo and password
     let username = "Ewillian"
+    //vérification pseudo existant
     let password = "password"
     let sql_query = `SELECT username, password FROM users WHERE username = "${username}"`
 
     db.serialize(() => {
-      db.get( sql_query , (err, row) => {
-        let status = "nothing happened"
-        if (err) {
+      db.all( `SELECT username FROM users` , (err, row) => {
+        let is_exist = row.some(function(element) {
+          console.log(element.username)
+          return element.username == username;
+        })
+        if(is_exist == false){
           res.format({
             json: () => {
               res.send({           
-                status: "No user"
+                  status: "no user"
               })
             }
           })
-        }
-        console.log(row);
-        if(username == row.username && password == row.password){
-          status = "connected"
-        }
-        else if(username == row.username && password != row.password){
-          status = "Bad password"
-        }
-        res.format({
-          json: () => {
-            res.send({           
-                status: status
+        }else if (is_exist == true){
+          db.get( sql_query , (err, row) => {
+            let status = "nothing happened"
+            if (err) {
+              console.log(err)
+            }
+            console.log(row);
+            if(username == row.username && password == row.password){
+              status = "connected"
+            }
+            else if(username == row.username && password != row.password){
+              status = "Bad password"
+            }
+            res.format({
+              json: () => {
+                res.send({           
+                    status: status
+                })
+              }
             })
-          }
-        })
-      })
+          })
+        }
+    })
   })
 })
 
 router.use(logger)
 
 module.exports = router
+
+
