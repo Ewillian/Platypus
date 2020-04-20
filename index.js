@@ -3,12 +3,20 @@ const router = require('./Routers/Master_router')
 const methodOverride = require('method-override')
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database(':memory:', (err) => {
+let db = new sqlite3.Database('./Database.db', (err) => {
     if (err) {
-      return console.error(err.message);
+      console.error(err.message);
     }
-    console.log('Connected to the in-memory SQlite database.');
-});
+    console.log('Connected to the local database.');
+    return Promise.all([
+        db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname VARCHAR(50), lastname VARCHAR(50), username VARCHAR(50), password VARCHAR(50), email VARCHAR(50), createdAt VARCHAR(50), updatedAt VARCHAR(50))")
+        ]).then(() => {
+            console.log("Database ready")
+        }).catch(() => {
+            console.log("Une erreur s'est produite :", err)
+    })
+})
+
 
 //Test Connection à la base de données
 app.use(router)
