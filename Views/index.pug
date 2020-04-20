@@ -1,0 +1,73 @@
+doctype html
+html(lang="en")
+    head
+        title Page title
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="description" content="")
+        meta(name="author" content="")
+        link(rel="stylesheet" href="css/bulma/bulma-theme.css")
+        link(rel="icon" href="favicon.ico")
+        script(src="js/main.js")
+    body
+        .container.is-fluid
+
+            nav.navbar
+                .container
+                    .navbar-brand
+                        a.navbar-item(href="#") PLATYPUS
+                        a.navbar-burger(role="button", aria-label="menu", aria-expanded="false")
+                            span(aria-hidden="true")
+                            span(aria-hidden="true")
+                            span(aria-hidden="true")
+                    .navbar-menu
+                        .navbar-start
+                            a.navbar-item(href="particulier.html") Particulier
+                            a.navbar-item(href="#") Professionel
+                            a.navbar-item(href="#") Hopitaux
+                            a.navbar-item(href="#") ICO
+                        .navbar-end
+                            .navbar-item
+                                .buttons
+                                    a.button.is-light(href="inscription.html") Inscription
+                                    a.button.is-primary(href="connexion.html") Connexion
+
+            section.hero
+                .hero-body
+                    .container.has-text-centered
+                        h1.title.is-spaced Platypus
+                        h2.subtitle ENTRAIDE ENTRE CITOYENS FACE AU COVID-19
+
+                        .buttons.is-centered
+                            a.control.button.is-primary(href="#") Je souhaite aider
+                            a.control.button.is-light(href="#") J'ai besoins d'aide
+
+            section.section
+                .container.has-text-centered
+                    .block
+                        img(src="placeholder/icons/unicorn.svg", alt="")
+
+                    p Vous êtes un professionel ou un particulier ? Vous souhaitez participer à la solidarité national façe au COVID-19 ? Demandez de l'aide ou proposer vos services.
+
+
+            section.section
+                .container
+                    h2.title.has-text-centered Comment aider ?
+
+                    .columns
+                        .column.is-3
+                            h4.title.is-spaced.is-4 Particulier
+                            p.subtitle.is-6 Voisins
+                            a(href="#") Voir plus
+                        .column.is-3
+                            h4.title.is-spaced.is-4 Professsionel
+                            p.subtitle.is-6 Entreprises
+                            a(href="#") Voir plus
+                        .column.is-3
+                            h4.title.is-spaced.is-4 Hopitaux
+                            p.subtitle.is-6 Je souhaite faire un don aux hopitaux de France
+                            a(href="#") Voir plus
+                        .column.is-3
+                            h4.title.is-spaced.is-4 Platypus
+                            p.subtitle.is-6 Qui sommes-nous?
+                            a(href="#") Découvrir notre action
