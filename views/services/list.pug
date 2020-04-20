@@ -19,7 +19,13 @@ html
                             i(style='margin-left:4px;').fas.fa-arrow-up
                         if  order=="title" && asc=="ASC"
                             i(style='margin-left:4px;').fas.fa-arrow-down
-                    th 
+                    th
+                        a(href=url+'?order=city&asc='+asc) Ville
+                        if  order=="city" && asc=="DESC" 
+                            i(style='margin-left:4px;').fas.fa-arrow-up
+                        if  order=="city" && asc=="ASC"
+                            i(style='margin-left:4px;').fas.fa-arrow-down
+                    th  
                         a(href=url+'?order=message&asc='+asc) Message
                         if  order=="message" && asc=="DESC" 
                             i(style='margin-left:4px;').fas.fa-arrow-up
@@ -49,6 +55,7 @@ html
                     tr
                         td= service.id
                         td= service.title
+                        td= service.city
                         td= service.message
                         if service.completion
                             td Fait

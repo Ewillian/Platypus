@@ -13,13 +13,13 @@ module.exports = {
     getService(id){
         return database.get('SELECT * FROM services WHERE id = ?;', id)
     },
-    postService(title, message, completion, date, userID){
-        return database.run('INSERT INTO services (title, message, completion, created_at, update_at, user_id) VALUES (?, ?, ?, ?, ?, ?);'
-        , title, message, completion, date, date, userID)
+    postService(title, city, message, completion, date, userID){
+        return database.run('INSERT INTO services (title, city, message, completion, created_at, update_at, user_id) VALUES (?, ?, ?, ?, ?, ?, ?);'
+        , title, city, message, completion, date, date, userID)
     },
-    patchService(id, title, message, completion, date){
-        return database.run('UPDATE services SET title = ?, message = ?, completion = ? , update_at = ? WHERE id = ?;'
-        , title, message, completion, date, id)
+    patchService(id, title, city, message, completion, date){
+        return database.run('UPDATE services SET title = ?, city = ?, message = ?, completion = ? , update_at = ? WHERE id = ?;'
+        , title, city, message, completion, date, id)
     },
     deleteService(id){
         return database.run('DELETE FROM services WHERE id = ?;', id)    

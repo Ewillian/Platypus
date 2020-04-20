@@ -94,7 +94,7 @@ router.post('/', (request, response, next) => {
     let date = utils.getDate()
     return sessions.getSessionByToken(request.cookies.AccessToken)
     .then((values)=>{
-    return services.postService(request.body.title, request.body.message, Boolean(request.body.completion), date, values.userID)
+    return services.postService(request.body.title, request.body.city, request.body.message, Boolean(request.body.completion), date, values.userID)
     }).then((values)=>{
         response.format({
             text: function(){
@@ -117,7 +117,7 @@ router.post('/', (request, response, next) => {
 
 router.patch('/:serviceID', (request, response, next)=>{
     let date = utils.getDate()
-    return services.patchService(request.params.serviceID, request.body.title, request.body.message, request.body.completion, date)
+    return services.patchService(request.params.serviceID, request.body.title, request.body.city, request.body.message, request.body.completion, date)
     .then((values)=>{
         response.format({
             text: function(){

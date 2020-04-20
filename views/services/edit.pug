@@ -11,6 +11,9 @@ html
             label.label Titre
               .control
                 input(name="title", cols="30", rows="10", type="text", value=service.title).input
+            label.label Ville
+              .control
+                input(name="city", cols="30", rows="10", type="text", value=service.city).input
             label.label Message
               .control
                 textarea(class="service" name="message", cols="30", rows="10").textarea.has-fixed-size #{service.message}
@@ -26,6 +29,9 @@ html
             label.label Titre
               .control
                 input(name="title", cols="30", rows="10", type="text").input
+            label.label Ville
+              .control
+                input(name="city", cols="30", rows="10", type="text").input
             label.label Message
               .control
                 textarea(class="service" name="message", cols="30", rows="10").textarea.has-fixed-size
