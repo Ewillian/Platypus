@@ -8,7 +8,7 @@ html
       .column
         if method == 'PATCH'
           form(action='/services/'+service.id+'?_method=PATCH', method='post')
-            label.label Titre
+            label.label Titre du service
               .control
                 input(name="title", cols="30", rows="10", type="text", value=service.title).input
             label.label Ville
@@ -26,7 +26,7 @@ html
             input(type='submit', value='Valider').button.is-success
         else
           form(action='/services', method='post')
-            label.label Titre
+            label.label Titre du service
               .control
                 input(name="title", cols="30", rows="10", type="text").input
             label.label Ville
