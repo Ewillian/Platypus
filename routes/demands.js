@@ -27,7 +27,7 @@ router.get('/list', (request, response, next) => {
             },
           
             html: function(){
-                response.render('index',{
+                response.render('indexDemands',{
                     demands: values,
                     order: order,
                     url: "/demands",
