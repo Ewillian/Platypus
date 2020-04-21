@@ -3,8 +3,7 @@ html
   include ../structure/head.pug
   body
     include ../structure/header.pug
-    .columns.is-mobile
-      .column
+    .container
       .column
         .label Prénom :
         p.is-size-4 #{user.firstname}
@@ -20,8 +19,12 @@ html
         p.is-size-4 #{user.created_at}
         .label Mis à jour le :
         p.is-size-4 #{user.update_at}
-        a(href='/users/'+user.id+'/services').button.is-info Services
-      .column
-        a(href='/users/'+user.id+'/demands').button.is-info Demandes
-      .column
-      
+    section.section
+      .container.has-text-centered
+        .field.is-grouped
+          .control
+            a(href='/users/'+user.id+'/services').button.is-info Services de #{user.username}
+          .control.is-expanded
+            a(href='/users/'+user.id+'/demands').button.is-info Demandes de #{user.username}
+footer
+    include ../structure/footer.pug 

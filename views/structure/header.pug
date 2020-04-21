@@ -1,5 +1,5 @@
 header
-  section.hero
+  section.hero.is-light
     .hero-body
         .container.has-text-centered
             h1.title.is-spaced Platypus
@@ -7,18 +7,18 @@ header
 
             .buttons.is-centered
                 a.control.button.is-primary(href="/services/add") Je souhaite aider
-                a.control.button.is-light(href="/demands/add") J'ai besoins d'aide
+                a.control.button.is-dark(href="/demands/add") J'ai besoins d'aide
+        .container.has-text-centered
+          .block
+            img(src="placeholder/icons/unicorn.svg", alt="")
+            p Vous êtes un professionel ou un particulier ? Vous souhaitez participer à la solidarité national façe au COVID-19 ? Demandez de l'aide ou proposer vos services. 
+                 
   section.section
-                  .container.has-text-centered
-                      .block
-                          img(src="placeholder/icons/unicorn.svg", alt="")
-                      p Vous êtes un professionel ou un particulier ? Vous souhaitez participer à la solidarité national façe au COVID-19 ? Demandez de l'aide ou proposer vos services.               
-  section.hero
   .container.has-text-centered
     .jumbotron
       nav
-        a(href='/services').button Afficher toutes les propositions
-        a(href='/demands/list').button Afficher toutes les demandes
+        a(href='/services').button.is-light Afficher toutes les propositions
+        a(href='/demands/list').button.is-light Afficher toutes les demandes
         //a(href='/users/add').button Ajouter un user
           i(style='margin-left:4px;').fas.fa-plus-square
-        a(href='/users').button Afficher tous les Utilisateurs
+        a(href='/users').button.is-light Afficher tous les Utilisateurs

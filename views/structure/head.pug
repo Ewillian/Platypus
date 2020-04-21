@@ -11,7 +11,7 @@ body
         nav.navbar
             .container
                 .navbar-brand
-                    a.navbar-item(href="home") PLATYPUS
+                    a.navbar-item(href="/services") PLATYPUS
                     a.navbar-burger(role="button", aria-label="menu", aria-expanded="false")
                         span(aria-hidden="true")
                         span(aria-hidden="true")
@@ -24,6 +24,6 @@ body
                     .navbar-end
                         .navbar-item
                             .buttons
-                                a.button.is-light(href="#") Profil
+                                a.button.is-light(href="/services") Profil
                                 form-group(action='/services?_method=DELETE', method='post')
                                     input(type='submit', value='Déconnexion').button.is-danger
