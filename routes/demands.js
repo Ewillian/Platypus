@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const utils = require('../functions/utils')
 const demands = require('../functions/demands')
+const users = require('./../functions/users')
 const sessions = require('../functions/sessions')
 
 
@@ -21,23 +22,27 @@ router.get('/list', (request, response, next) => {
             return  demands.getAllByUser(values.userID)
         }
     }).then((values)=>{
-        response.format({
-            text: function(){
-                response.send(JSON.stringify(values));
-            },
-          
-            html: function(){
-                response.render('indexDemands',{
-                    demands: values,
-                    order: order,
-                    url: "/demands",
-                    asc: asc
-                })
-            },
-          
-            json: function(){
-                response.json(values);
-            }
+        return users.getUserById(values[0].user_id)
+        .then((userData)=>{
+            response.format({
+                text: function(){
+                    response.send(JSON.stringify(values));
+                },
+            
+                html: function(){
+                    response.render('indexDemands',{
+                        demands: values,
+                        username: userData.username,
+                        order: order,
+                        url: "/demands",
+                        asc: asc
+                    })
+                },
+            
+                json: function(){
+                    response.json(values);
+                }
+            })
         })
     }).catch((error)=>{
         console.log(error)
@@ -69,24 +74,29 @@ router.get('/:demandID/edit', (request, response, next)=>{
 router.get('/:demandID', (request, response, next) => {
     return demands.getDemand(request.params.demandID)
     .then((values)=>{
-        response.format({
-            text: function(){
-                response.send(JSON.stringify(values));
-            },
-          
-            html: function(){
-                response.render('demands/show',{
-                    demand: values
-                })
-            },
-          
-            json: function(){
-                response.json(values);
-            }
+        return users.getUserById(values.user_id)
+        .then((userData)=>{
+            response.format({
+                text: function(){
+                    response.send(JSON.stringify(values));
+                },
+                
+                html: function(){
+                    response.render('demands/show',{
+                        demand: values,
+                        username: userData.username
+                    })
+                },
+                
+                json: function(){
+                    response.json(values);
+                }
+            })
+        }).catch((error)=>{
+            console.log(error)
+            response.status(500).send(error)
         })
-    }).catch((error)=>{
-        response.status(500).send(error)
-    })
+    }) 
 })
 
 

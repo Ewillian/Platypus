@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const utils = require('../functions/utils')
 const services = require('./../functions/services')
+const users = require('./../functions/users')
 const sessions = require('../functions/sessions')
 
 
@@ -21,23 +22,27 @@ router.get('/', (request, response, next) => {
             return  services.getAllByUser(values.userID)
         }
     }).then((values)=>{
-        response.format({
-            text: function(){
-                response.send(JSON.stringify(values));
-            },
-          
-            html: function(){
-                response.render('index',{
-                    services: values,
-                    order: order,
-                    url: "/services",
-                    asc: asc
-                })
-            },
-          
-            json: function(){
-                response.json(values);
-            }
+        return users.getUserById(values[0].user_id)
+        .then((userData)=>{
+            response.format({
+                text: function(){
+                    response.send(JSON.stringify(values));
+                },
+            
+                html: function(){
+                    response.render('index',{
+                        services: values,
+                        username: userData.username,
+                        order: order,
+                        url: "/services",
+                        asc: asc
+                    })
+                },
+            
+                json: function(){
+                    response.json(values);
+                }
+            })
         })
     }).catch((error)=>{
         console.log(error)

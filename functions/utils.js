@@ -10,7 +10,7 @@ module.exports = {
     createDatabase(){
         database.open(file_name).then(()=>{
             return Promise.all([
-                database.run("CREATE TABLE IF NOT EXISTS services (id integer primary key autoincrement, title, city, message, completion, created_at, update_at, user_id)"),
+                database.run("CREATE TABLE IF NOT EXISTS services (id integer primary key autoincrement, title VACHAR(50), city VACHAR(50), message VACHAR(50), completion BOOL, volunteer VACHAR(50), attributed BOOL, created_at, update_at, user_id)"),
                 database.run("CREATE TABLE IF NOT EXISTS demands (id integer primary key autoincrement, title, city, message, completion, created_at, update_at, user_id)"), 
                 database.run("CREATE TABLE IF NOT EXISTS users (id integer primary key autoincrement, firstname, lastname, username, password, email, created_at, update_at, role_id)"),
                 database.run("CREATE TABLE IF NOT EXISTS sessions (id integer primary key autoincrement, userID, accessToken, created_at, expires_at)"),                

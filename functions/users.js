@@ -11,6 +11,9 @@ module.exports = {
     getUserbyUsername(username){
         return database.get('SELECT * FROM users WHERE username = ?;', username)
     },
+    getUserById(id){
+        return database.get('SELECT * FROM users where id = ?;', id)
+    },
     getUserServices(id, order, asc){
         let query = sql`SELECT * FROM users LEFT OUTER JOIN services ON services.user_id=users.id WHERE users.id = ${id}`
         if(order && asc){

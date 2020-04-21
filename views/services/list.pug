@@ -31,17 +31,17 @@ html
                             i(style='margin-left:4px;').fas.fa-arrow-up
                         if  order=="message" && asc=="ASC"
                             i(style='margin-left:4px;').fas.fa-arrow-down
+                    th
+                        a(href=url+'?order=username&asc='+asc) Créé par
+                        if  order=="username" && asc=="DESC" 
+                            i(style='margin-left:4px;').fas.fa-arrow-up
+                        if  order=="username" && asc=="ASC"
+                            i(style='margin-left:4px;').fas.fa-arrow-down
                     th 
                         a(href=url+'?order=completion&asc='+asc) Completion
                         if  order=="completion" && asc=="DESC" 
                             i(style='margin-left:4px;').fas.fa-arrow-up
                         if  order=="completion" && asc=="ASC"
-                            i(style='margin-left:4px;').fas.fa-arrow-down
-                    th 
-                        a(href=url+'?order=update_at&asc='+asc) Date d'update
-                        if  order=="update_at" && asc=="DESC" 
-                            i(style='margin-left:4px;').fas.fa-arrow-up
-                        if  order=="update_at" && asc=="ASC"
                             i(style='margin-left:4px;').fas.fa-arrow-down
                     th 
                         a(href=url+'?order=created_at&asc='+asc) Date de création
@@ -57,11 +57,11 @@ html
                         td= service.title
                         td= service.city
                         td= service.message
+                        td= username
                         if service.completion
                             td Fait
                         else
                             td En cours
-                        td= service.update_at
                         td= service.created_at
                         td
                             a(href='/services/'+service.id).button.is-info Afficher
@@ -69,6 +69,6 @@ html
                             a(href='/services/'+service.id+'/edit').button.is-primary Editer
                         td
                             form(action='/services/'+service.id+'?_method=DELETE', method='post')
-                                input(type='submit', value='Supprimer').button.is-danger
+                                input(type='submit', value='Supprimer').button.is-danger                      
 footer
     include ../structure/footer.pug

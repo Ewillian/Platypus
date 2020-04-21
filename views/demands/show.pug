@@ -3,8 +3,7 @@ html
   include ../structure/head.pug
   body
     include ../structure/header.pug
-    .columns.is-mobile
-      .column
+    .container
       .column
         .label Titre :
         p.is-size-4 #{demand.title}
@@ -21,6 +20,9 @@ html
         p.is-size-4 #{demand.created_at}
         .label Mis à jour le :
         p.is-size-4 #{demand.update_at}
-      .column
+        section.section
+        .container.has-text-centered
+          .control
+            a(href='/services/').button.is-info Je suis volontaire
 footer
   include ../structure/footer.pug
