@@ -31,12 +31,6 @@ html
                             i(style='margin-left:4px;').fas.fa-arrow-up
                         if  order=="message" && asc=="ASC"
                             i(style='margin-left:4px;').fas.fa-arrow-down
-                    th
-                        a(href=url+'?order=username&asc='+asc) Créé par
-                        if  order=="username" && asc=="DESC" 
-                            i(style='margin-left:4px;').fas.fa-arrow-up
-                        if  order=="username" && asc=="ASC"
-                            i(style='margin-left:4px;').fas.fa-arrow-down
                     th 
                         a(href=url+'?order=completion&asc='+asc) Completion
                         if  order=="completion" && asc=="DESC" 
@@ -63,7 +57,6 @@ html
                         td= demand.title
                         td= demand.city
                         td= demand.message
-                        td= username
                         if demand.completion
                             td Fait
                         else
