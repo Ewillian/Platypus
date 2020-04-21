@@ -22,8 +22,8 @@ router.get('/', (request, response, next) => {
             return  services.getAllByUser(values.userID)
         }
     }).then((values)=>{
-        return users.getUserById(values[0].user_id)
-        .then((userData)=>{
+        return users.getUserById(values.user_id)
+        .then((username)=>{
             response.format({
                 text: function(){
                     response.send(JSON.stringify(values));
@@ -32,7 +32,7 @@ router.get('/', (request, response, next) => {
                 html: function(){
                     response.render('index',{
                         services: values,
-                        username: userData.username,
+                        username: username,
                         order: order,
                         url: "/services",
                         asc: asc

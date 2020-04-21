@@ -22,8 +22,8 @@ router.get('/list', (request, response, next) => {
             return  demands.getAllByUser(values.userID)
         }
     }).then((values)=>{
-        return users.getUserById(values[0].user_id)
-        .then((userData)=>{
+        return users.getUserById(values.user_id)
+        .then((username)=>{
             response.format({
                 text: function(){
                     response.send(JSON.stringify(values));
@@ -32,7 +32,7 @@ router.get('/list', (request, response, next) => {
                 html: function(){
                     response.render('indexDemands',{
                         demands: values,
-                        username: userData.username,
+                        username: username,
                         order: order,
                         url: "/demands",
                         asc: asc
@@ -75,7 +75,7 @@ router.get('/:demandID', (request, response, next) => {
     return demands.getDemand(request.params.demandID)
     .then((values)=>{
         return users.getUserById(values.user_id)
-        .then((userData)=>{
+        .then((username)=>{
             response.format({
                 text: function(){
                     response.send(JSON.stringify(values));
@@ -84,7 +84,7 @@ router.get('/:demandID', (request, response, next) => {
                 html: function(){
                     response.render('demands/show',{
                         demand: values,
-                        username: userData.username
+                        username: username
                     })
                 },
                 
