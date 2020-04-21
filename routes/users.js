@@ -71,6 +71,29 @@ router.get('/:userID/services', (request, response, next)=>{
     })
 })
 
+router.get('/:userID/demands', (request, response, next)=>{
+    let order
+    let asc = "ASC"
+    if(request.query.order && request.query.asc == "ASC"){
+        order = request.query.order
+        asc = "DESC"
+    }else if(request.query.order && request.query.asc == "DESC"){
+        order = request.query.order
+        asc = "ASC"
+    }
+    return users.getUserDemands(request.params.userID, order, asc)
+    .then((values)=>{
+        response.render('demands/list',{
+            demands : values,
+            order: order,
+            url : "/users/"+request.params.userID+"/demands",
+            asc: asc
+        })
+    }).catch((error)=>{
+        response.status(500).send(error)
+    })
+})
+
 router.get('/:userID', (request, response, next) => {
     return users.getUser(request.params.userID)
     .then((values)=>{
