@@ -1,8 +1,29 @@
 head
-    title Todolist
+    title Platypus
     //link(rel='stylesheet', href='styles/assets/css/style.css')
     link(rel='stylesheet', href='/style.css')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css')
     script(defer='', src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+body
+    .container.is-fluid
+        nav.navbar
+            .container
+                .navbar-brand
+                    a.navbar-item(href="home") PLATYPUS
+                    a.navbar-burger(role="button", aria-label="menu", aria-expanded="false")
+                        span(aria-hidden="true")
+                        span(aria-hidden="true")
+                        span(aria-hidden="true")
+                .navbar-menu
+                    .navbar-start
+                        a.navbar-item(href="particulier.html") Particulier
+                        a.navbar-item(href="#") Professionel
+                        a.navbar-item(target="_blank" href="https://www.fondationhopitaux.fr/nous-soutenir/") Hopitaux
+                    .navbar-end
+                        .navbar-item
+                            .buttons
+                                a.button.is-light(href="#") Profil
+                                form-group(action='/services?_method=DELETE', method='post')
+                                    input(type='submit', value='Déconnexion').button.is-danger
