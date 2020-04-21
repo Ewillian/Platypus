@@ -48,7 +48,7 @@ router.get('/:userID/edit', (request, response, next)=>{
     })
 })
 
-router.get('/:userID/todos', (request, response, next)=>{
+router.get('/:userID/services', (request, response, next)=>{
     let order
     let asc = "ASC"
     if(request.query.order && request.query.asc == "ASC"){
@@ -58,12 +58,12 @@ router.get('/:userID/todos', (request, response, next)=>{
         order = request.query.order
         asc = "ASC"
     }
-    return users.getUserTodos(request.params.userID, order, asc)
+    return users.getUserServices(request.params.userID, order, asc)
     .then((values)=>{
-        response.render('todos/list',{
-            todos : values,
+        response.render('services/list',{
+            services : values,
             order: order,
-            url : "/users/"+request.params.userID+"/todos",
+            url : "/users/"+request.params.userID+"/services",
             asc: asc
         })
     }).catch((error)=>{
