@@ -8,6 +8,12 @@ header
             .buttons.is-centered
                 a.control.button.is-primary(href="#") Je souhaite aider
                 a.control.button.is-light(href="#") J'ai besoins d'aide
+  section.section
+                  .container.has-text-centered
+                      .block
+                          img(src="placeholder/icons/unicorn.svg", alt="")
+
+                      p Vous êtes un professionel ou un particulier ? Vous souhaitez participer à la solidarité national façe au COVID-19 ? Demandez de l'aide ou proposer vos services.               
   section.hero
   .container
     .jumbotron
@@ -20,4 +26,4 @@ header
           i(style='margin-left:4px;').fas.fa-plus-square
         a(href='/users').button Afficher tous les Utilisateurs
         form-group(action='/sessions?_method=DELETE', method='post')
-          input(type='submit', value='Déconnexion').button.is-danger
+          input(type='submit', value='Déconnexion').button.is-danger 
